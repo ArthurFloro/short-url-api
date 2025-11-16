@@ -1,7 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-const urlRoutes = require('./src/routes/url');
 
 //carregar as variaveis do .env
 dotenv.config()
@@ -18,8 +17,9 @@ mongoose.connect(process.env.MONGO_URI)
 app.use(express.json())
 
 //definir as rotas
-app.use('/', urlRoutes)
-app.use('/api/url', urlRoutes)
+app.use('/', require('./src/routes/index'));
+app.use('/api/url', require('./src/routes/url'));
+
 
 const PORT = process.env.PORT || 5000
 
