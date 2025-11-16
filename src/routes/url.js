@@ -5,7 +5,7 @@ const Url = require('../models/Url')
 
 // rota POST
 // Cria uma URL curta
-router.posrt('/shorten', async (req, res) => {
+router.post('/shorten', async (req, res) => {
     const {longUrl} = req.body
 
     // criando um baseUrl considerando que seria o nosso proprio servidor
