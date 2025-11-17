@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+const cors = require('cors')
 
 //carregar as variaveis do .env
 dotenv.config()
@@ -15,6 +16,7 @@ mongoose.connect(process.env.MONGO_URI)
 
 //middleware para parsear JSON
 app.use(express.json())
+app.use(cors())
 
 //definir as rotas
 app.use('/', require('./src/routes/index'));
