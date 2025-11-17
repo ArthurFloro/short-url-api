@@ -9,7 +9,7 @@ router.post('/shorten', async (req, res) => {
     const {longUrl} = req.body
 
     // criando um baseUrl considerando que seria o nosso proprio servidor
-    const baseUrl = `http://localhost:${process.env.PORT}`
+    const baseUrl = process.env.BASE_URL || `http://localhost:${process.env.PORT}`
 
     //validando a URL
     if (!longUrl) {
